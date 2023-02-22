@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="thanks">
+        <h3>Thank you, your message has been sent.</h3>
+    <p>You should be automatically redirected in <span id="seconds">7</span> seconds.
+    </p>
+</div>
+<script>  // Countdown timer for redirecting to another URL after several seconds
+
+    let seconds = 7; // seconds for HTML
+    let foo; // variable for clearInterval() function
+    
+    function redirect() {
+        document.location.href = 'https://behindthecode.co.uk/Portfolio/index.html';
+    }
+    
+    function updateSecs() {
+        document.getElementById("seconds").innerHTML = seconds;
+        seconds--;
+        if (seconds == -1) {
+            clearInterval(foo);
+            redirect();
+        }
+    }
+    
+    function countdownTimer() {
+        foo = setInterval(function () {
+            updateSecs()
+        }, 1000);
+    }
+    
+    countdownTimer();</script>
+<script src="app.js"></script>
+</body>
+</html>
